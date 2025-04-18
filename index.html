@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Student Form</title>
-</head>
 <body>
-  <h2>Student Details</h2>
-  <form id="studentForm">
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br>
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br>
-    <label>Course:</label><br>
-    <input type="text" name="course" required><br><br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    const form = document.getElementById('index');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        course: form.course.value,
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbwpOwEXvsCJL43sUbHyYNtzMKrJMgAanPLXR3OQt5xNIzK_zBnTs7kE8XbNUty61hghEA/exec", {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(res => res.json())
-      .then(response => alert('Submitted Successfully!'))
-      .catch(error => alert('Error! ' + error));
-    });
-  </script>
+  <div class="container">
+    <form method="post" action="https://script.google.com/macros/s/AKfycbxFwkKVtDX7R9zFxxZkkpDJfLrt0u_jjyI6E1EGcp0cJ4E1Z1f3JTi2B5A_fwDbv_sN/exec" name="contact-form">
+      <h4>Contact Us</h4>
+      <input type="text" name="your-name" placeholder="Name">
+      <input type="text" name="your-number" placeholder="Number">
+      <input type="email" name="your-email" placeholder="Email">
+      <textarea name="message" rows="7" placeholder="Your Message">
+      </textarea>
+      <input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
 </body>
-</html>
